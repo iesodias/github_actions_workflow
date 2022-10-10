@@ -1,7 +1,7 @@
 Name: CD
   on:
   workflow_run:
-    workflows: ["CI build"]
+    workflows: ["CI"]
   types:
     - completed
     
