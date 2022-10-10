@@ -1,21 +1,14 @@
-Name: CD
-  on:
+name: Use the data
+
+on:
   workflow_run:
-    workflows: ["CI"]
-  types:
-    - completed
+    workflows: [Upload data]
+    types:
+      - completed
     
-Deploy:
-
-  runs-on: ubuntu-latesthttps://github.com/iesodias/github_actions_workflow
-  environment: 
-    name: hml
-
-  steps:
-    - uses: actions/checkout@v3
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+jobs:
+  print-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print the input tag to STDOUT
+        run: echo  The tags are ${{ inputs.tags }} 
