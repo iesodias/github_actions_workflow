@@ -2,10 +2,10 @@ name: Use the data
 
 on:
   workflow_run:
-    workflows: [Upload data]
+    workflows: ["CI build"]
     types:
       - completed
-    
+
 jobs:
   print-tag:
     runs-on: ubuntu-latest
